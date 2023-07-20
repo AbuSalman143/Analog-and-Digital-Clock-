@@ -12,6 +12,10 @@ setInterval(()=>{
     mn.style.transform = `rotateZ(${(mm)}deg)`;
     sc.style.transform = `rotateZ(${(ss)}deg)`;
 
+    
+    
+
+
         //  digital clock
 
 
@@ -41,33 +45,27 @@ setInterval(()=>{
     secounds.innerHTML=s;
     ampm.innerHTML=am
 
+        // this is for the day and date
+
+        
+        let dayElement = document.getElementById("day");
+        let dateElement = document.getElementById("date");
+        dayElement.textContent = getFullDayName(day.getDay());
+        dateElement.textContent = `${getFullMonthName(day.getMonth())} ${day.getDate()}, ${day.getFullYear()}`;
+        
+
+
 })
 
-function getFullDayName(dayIndex) {
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-    return days[dayIndex];
-}
+ function getFullDayName(dayIndex) {
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            return days[dayIndex];
+        }
 
-// Function to get the full month name (e.g., January, February, etc.)
-function getFullMonthName(monthIndex) {
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    return months[monthIndex];
-}
+        function getFullMonthName(monthIndex) {
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            return months[monthIndex];
+        }
 
-// Function to display the current day and date
-function displayDayAndDate() {
-    const now = new Date();
-    const dayElement = document.getElementById("day");
-    const dateElement = document.getElementById("date");
 
-    const dayOfWeek = getFullDayName(now.getDay());
-    const month = getFullMonthName(now.getMonth());
-    const dayOfMonth = now.getDate();
-    const year = now.getFullYear();
 
-    dayElement.textContent = ` ${dayOfWeek}`;
-    dateElement.textContent = `${month} ${dayOfMonth}, ${year}`;
-}
-
-// Call the displayDayAndDate function when the page loads
-displayDayAndDate();
